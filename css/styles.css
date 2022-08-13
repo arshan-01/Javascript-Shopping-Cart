@@ -1,0 +1,115 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.p-price{
+  padding: 6px 15px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+
+
+
+/* Loader code */
+
+.spinner-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  @keyframes blink {
+    0% {
+      opacity: 0.2;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.2;
+    }
+  }
+  
+  .three-dots span {
+    animation-name: blink;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+  }
+  
+  .three-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .three-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  .spinner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+  }
+  
+  .spinner-sector {
+    border-radius: 50%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 15px solid transparent;
+  }
+  
+  .spinner-text {
+    font-size: 2em;
+  }
+  
+  .spinner-sector-blue {
+    animation: rotate 2s ease-out infinite;
+    border-top: 15px solid lightblue;
+  }
+  
+  .spinner-sector-red {
+    animation: rotate 2.5s ease-in infinite;
+    border-top: 15px solid lightcoral;
+  }
+  
+  .spinner-sector-green {
+    animation: rotate 1.5s ease-in-out infinite;
+    border-top: 15px solid lightgreen;
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes loading-opacity {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    25%,
+    75% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 0.1;
+    }
+  }
+
