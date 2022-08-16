@@ -94,7 +94,6 @@ fetch('https://fakestoreapi.com/products')
                         id : id,
                         item : 1
                     })
-                    alert("Product Added to cart ");
                     }
                     else {
                         document.getElementsByClassName('fa-shopping-cart').disabled = true;
