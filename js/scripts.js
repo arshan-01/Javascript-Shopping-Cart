@@ -36,7 +36,7 @@ fetch('https://fakestoreapi.com/products')
                             <div class="card-footer py-3 px-0 pt-0 border-top-0 bg-transparent d-flex justify-content-between ">
                             
                                     <span class=" p-price mt-auto ms-3 text-center">$${price}</span>
-                                    <a class="btn btn-outline-dark mx-3 text-center " href="#">
+                                    <a class="btn btn-outline-dark mx-3 text-center ">
                                     <i onClick="addToCart(${id})" class="fas fa-shopping-cart"></i>
                                     </a>
                         </div>
@@ -94,7 +94,7 @@ fetch('https://fakestoreapi.com/products')
                         id : id,
                         item : 1
                     })
-                    
+                    alert("Product Added to cart ");
                     }
                     else {
                         document.getElementsByClassName('fa-shopping-cart').disabled = true;
