@@ -21,9 +21,10 @@ fetch('https://fakestoreapi.com/products')
                     <div id = product-id-${id} class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 individualCard">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <a  > 
+                            <div data-toggle="modal" data-target="#exampleModal" onClick ="productDetail(${id})">
                             <img class="card-img-top img-fluid" style="width: 260px; height:178px" src=${image} alt="..." />
-                            </a>
+                            </div>
+                        
                             <!-- Product details-->
                             <div class="card-body">
                                 <div class="text-center">
@@ -96,17 +97,51 @@ fetch('https://fakestoreapi.com/products')
                     
                     }
                     else {
-                        search.item += 1;
+                        document.getElementsByClassName('fa-shopping-cart').disabled = true;
+                        alert("Already Added ");
+                        // search.item += 1;
                     }
                     basket = basket.filter((x)=>x.id !==undefined);
                     
                     localStorage.setItem ("data" , JSON.stringify(basket));
                     document.getElementById("cartNumber").innerHTML = basket.length;
                     // console.log(basket.length)
-
-                    
+ 
                 }
             addToCart();
-         
+           let productDetail =(id)=>{
+            fetch('https://fakestoreapi.com/products')
+            .then(res=>res.json())
+            .then(data=>
+                {     
+                    
+                    let search = data.find((x) => x.id===id);
+                    let modalBody = document.getElementById("modal-body");
+                    modalBody.innerHTML = ` 
+                    <div class="col-md-12">
+                    <img class="card-img-top mb-5 mb-md-0" src=${search.image} alt="..." />
+                    <div class="col-md-12">
+                    <div class="small mb-1">SKU: BST-${search.id}</div>
+                        <h1 class="display-5 fw-bolder">${search.title}</h1>
+                        <div class="fs-5 mb-5">
+                            <span class="text-decoration-line-through"></span>
+                            <span>$${search.price.toFixed(2)}</span>
+                            </div>
+                            <p class="lead">${search.description}</p>
+                            <div class="d-flex">
+                            <button onClick="addToCart(${id})" class="btn btn-outline-dark flex-shrink-0" type="button">
+                            <i class="bi-cart-fill me-1"></i>
+                            Add to cart
+                            </button>
+                            </div>
+                            </div>
+                    </div>`
 
-           
+                    console.log(modalBody)
+
+                    
+                   
+                })
+                        
+                  
+        }   
